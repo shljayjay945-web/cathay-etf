@@ -4,10 +4,18 @@ Cathay Fund & ETF Web Dashboard Generator (with Direction A & B Peer Benchmarks)
 """
 
 import os
+import sys
 import json
 import openpyxl
 import pandas as pd
 from datetime import datetime
+
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+        sys.stderr.reconfigure(encoding='utf-8')
+    except Exception:
+        pass
 
 EXCEL_FILE = "國泰投信_人氣ETF與熱門基金分析.xlsx"
 HTML_OUTPUT = "國泰投信_人氣ETF與熱門基金投資分析儀表板.html"

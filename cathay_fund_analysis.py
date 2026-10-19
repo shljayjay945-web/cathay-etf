@@ -7,6 +7,7 @@ Upgrades:
 """
 
 import os
+import sys
 import re
 import requests
 import pandas as pd
@@ -15,6 +16,14 @@ import openpyxl
 from openpyxl.styles import Font, Alignment, PatternFill, Border, Side
 from openpyxl.utils import get_column_letter
 from openpyxl.chart import BarChart, Reference
+
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+        sys.stderr.reconfigure(encoding='utf-8')
+    except Exception:
+        pass
+
 
 BASE_URL = "https://cwapi.cathaysite.com.tw/"
 HEADERS = {

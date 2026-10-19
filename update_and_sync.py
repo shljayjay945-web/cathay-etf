@@ -29,14 +29,14 @@ def main():
 
     # 1. 抓取最新官方數據
     print("\n[1/3] 正在向國泰投信官網與市場伺服器抓取最新淨值、配息與投資組合...")
-    res1 = subprocess.run([sys.executable, "cathay_fund_analysis.py"])
+    res1 = subprocess.run([sys.executable, "-u", "cathay_fund_analysis.py"])
     if res1.returncode != 0:
         print("\n❌ [1/3] 數據抓取過程發生異常，請檢查網路連線後重試。")
         return 1
 
     # 2. 重新編譯 HTML 互動儀表板
     print("\n[2/3] 正在重新編譯 HTML5 互動式儀表板 (含手機端卡片流適配)...")
-    res2 = subprocess.run([sys.executable, "build_html_dashboard.py"])
+    res2 = subprocess.run([sys.executable, "-u", "build_html_dashboard.py"])
     if res2.returncode != 0:
         print("\n❌ [2/3] HTML 儀表板生成失敗。")
         return 1
